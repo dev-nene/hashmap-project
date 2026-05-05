@@ -79,4 +79,19 @@ class HashMap {
     }
     return false;
   }
+
+  remove(key) {
+    const index = this.hash(key);
+    if (this.buckets[index]) {
+      for (let i = 0; i < this.buckets[index].length; i++) {
+        if (key === this.buckets[index][i][0]) {
+          this.buckets[index].splice(i, 1);
+          if (this.buckets[index].length === 0) this.buckets[index] = undefined;
+          this.size -= 1;
+          return true;
+        }
+      }
+    }
+    return false;
+  }
 }
