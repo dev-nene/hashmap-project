@@ -11,8 +11,7 @@ class HashMap {
     const primeNumber = 31;
 
     for (let i = 0; i < key.length; i++) {
-      hashCode =
-        (primeNumber * hashCode + key.charCodeAt(i)) % this.capacity;
+      hashCode = (primeNumber * hashCode + key.charCodeAt(i)) % this.capacity;
     }
 
     return hashCode;
@@ -59,13 +58,25 @@ class HashMap {
 
   get(key) {
     const index = this.hash(key);
-    if(this.buckets[index]) {
-      for(let pair of this.buckets[index]) {
+    if (this.buckets[index]) {
+      for (let pair of this.buckets[index]) {
         if (key === pair[0]) {
           return pair[1];
         }
       }
     }
     return null;
+  }
+
+  has(key) {
+    const index = this.hash(key);
+    if (this.buckets[index]) {
+      for (let pair of this.buckets[index]) {
+        if (key === pair[0]) {
+          return true;
+        }
+      }
+    }
+    return false;
   }
 }
