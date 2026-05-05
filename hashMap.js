@@ -56,4 +56,16 @@ class HashMap {
       }
     }
   }
+
+  get(key) {
+    const index = this.hash(key);
+    if(this.buckets[index]) {
+      for(let pair of this.buckets[index]) {
+        if (key === pair[0]) {
+          return pair[1];
+        }
+      }
+    }
+    return null;
+  }
 }
