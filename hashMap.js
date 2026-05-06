@@ -114,4 +114,15 @@ class HashMap {
     }
     return res;
   }
+
+  values() {
+    const res = [];
+    for (let bucket of this.buckets) {
+      if (!bucket) continue;
+      for (let pair of bucket) {
+        res.push(pair[1]);
+      }
+    }
+    return res;
+  }
 }
