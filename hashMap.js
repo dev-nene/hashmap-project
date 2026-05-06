@@ -103,4 +103,15 @@ class HashMap {
     this.buckets = new Array(this.capacity).fill(null);
     this.size = 0;
   }
+
+  keys() {
+    const res = [];
+    for (let bucket of this.buckets) {
+      if (!bucket) continue;
+      for (let pair of bucket) {
+        res.push(pair[0]);
+      }
+    }
+    return res;
+  }
 }
