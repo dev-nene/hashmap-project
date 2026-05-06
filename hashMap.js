@@ -98,4 +98,9 @@ class HashMap {
   length() {
     return this.size;
   }
+
+  clear() {
+    this.buckets = new Array(this.capacity).fill(null);
+    this.size = 0;
+  }
 }
