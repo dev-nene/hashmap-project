@@ -125,4 +125,15 @@ class HashMap {
     }
     return res;
   }
+
+  entries() {
+    const res = [];
+    for (let bucket of this.buckets) {
+      if (!bucket) continue;
+      for (let pair of bucket) {
+        res.push([...pair]);
+      }
+    }
+    return res;
+  }
 }
