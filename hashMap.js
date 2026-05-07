@@ -137,3 +137,5 @@ class HashMap {
     return res;
   }
 }
+
+export default HashMap;
